@@ -49,7 +49,7 @@ class ToSwiftRpositoriesSnapshotTests: FBSnapshotTestCase {
         }
         
         // validate layout first loading screen
-        FBSnapshotVerifyView(imageViewLoadingScreen, identifier: Identifiers.TopListRepositoriesID.firstScreenLoading.rawValue, overallTolerance: 0.2)
+        FBSnapshotVerifyView(imageViewLoadingScreen, identifier: Identifiers.TopListRepositoriesID.firstScreenLoading.rawValue, overallTolerance: 0.5)
         
         
         //validate layout repository cell
