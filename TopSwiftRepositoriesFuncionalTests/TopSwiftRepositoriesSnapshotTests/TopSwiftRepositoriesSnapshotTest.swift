@@ -13,7 +13,7 @@ class ToSwiftRpositoriesSnapshotTests: FBSnapshotTestCase {
     
     override func setUp() {
         super.setUp()
-        recordMode = true
+//        recordMode = true
     }
     
     override func tearDown() {

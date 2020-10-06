@@ -18,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
             StubManager.shared.stubRequests(withDelay: 1)
+            
+            // Disable Autolayout Constraints Log (prevent log lenght limit on travis tests)
+            UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
         }
         
         return true
