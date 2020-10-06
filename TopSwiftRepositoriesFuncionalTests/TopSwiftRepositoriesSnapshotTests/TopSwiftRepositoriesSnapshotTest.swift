@@ -42,14 +42,14 @@ class ToSwiftRpositoriesSnapshotTests: FBSnapshotTestCase {
     
     
     func validateTopListRepositories(finished: () -> Void) {
-        let imageViewLoadingScreen = getCurrentImageScreen()
+//        let imageViewLoadingScreen = getCurrentImageScreen()
         guard let tableView = tester().waitForView(withAccessibilityIdentifier: "tableView") as? UITableView else {
             XCTFail("TableView not found")
             return
         }
         
         // validate layout first loading screen
-        FBSnapshotVerifyView(imageViewLoadingScreen, identifier: Identifiers.TopListRepositoriesID.firstScreenLoading.rawValue, overallTolerance: 0.5)
+//        FBSnapshotVerifyView(imageViewLoadingScreen, identifier: Identifiers.TopListRepositoriesID.firstScreenLoading.rawValue, overallTolerance: 0.5)
         
         
         //validate layout repository cell
