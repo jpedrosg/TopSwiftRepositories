@@ -49,7 +49,7 @@ class ToSwiftRpositoriesSnapshotTests: FBSnapshotTestCase {
         }
         
         // validate layout first loading screen
-        FBSnapshotVerifyView(imageViewLoadingScreen, identifier: Identifiers.TopListRepositoriesID.firstScreenLoading.rawValue, overallTolerance: 0.5)
+        FBSnapshotVerifyView(imageViewLoadingScreen, identifier: Identifiers.TopListRepositoriesID.firstScreenLoading.rawValue, overallTolerance: 0.2)
         
         
         //validate layout repository cell
@@ -62,7 +62,7 @@ class ToSwiftRpositoriesSnapshotTests: FBSnapshotTestCase {
         tester().waitForAnimationsToFinish()
         let imageViewFirstScreen = getCurrentImageScreen()
         
-        FBSnapshotVerifyView(imageViewFirstScreen, identifier: Identifiers.TopListRepositoriesID.firstScreen.rawValue, overallTolerance: 0.5)
+        FBSnapshotVerifyView(imageViewFirstScreen, identifier: Identifiers.TopListRepositoriesID.firstScreen.rawValue, overallTolerance: 0.2)
         
         
         //validate infinity scroll layout
@@ -70,7 +70,7 @@ class ToSwiftRpositoriesSnapshotTests: FBSnapshotTestCase {
         
         tester().waitForAnimationsToFinish()
         let imgFooter = getCurrentImageScreen()
-        FBSnapshotVerifyView(imgFooter, identifier: Identifiers.TopListRepositoriesID.infinityLoading.rawValue,overallTolerance: 0.5)
+        FBSnapshotVerifyView(imgFooter, identifier: Identifiers.TopListRepositoriesID.infinityLoading.rawValue,overallTolerance: 0.2)
         
         finished()
     }
@@ -92,7 +92,7 @@ class ToSwiftRpositoriesSnapshotTests: FBSnapshotTestCase {
             tableViewPullRequests.contentOffset.y = 0
             tester().waitForAnimationsToFinish()
             if let cell = tester().waitForCell(at: IndexPath(item: 0, section: 0), in: tableViewPullRequests) as? PullRequestCell {
-                FBSnapshotVerifyView(getCurrentImageScreen(), identifier: Identifiers.ListPullRequest.pullRequestsScreen.rawValue, overallTolerance: 0.5)
+                FBSnapshotVerifyView(getCurrentImageScreen(), identifier: Identifiers.ListPullRequest.pullRequestsScreen.rawValue, overallTolerance: 0.2)
                 FBSnapshotVerifyView(cell, identifier: Identifiers.ListPullRequest.pullRequestCell.rawValue)
             }
         }
