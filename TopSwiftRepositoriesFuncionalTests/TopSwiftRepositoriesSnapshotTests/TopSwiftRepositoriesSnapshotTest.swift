@@ -42,28 +42,23 @@ class ToSwiftRpositoriesSnapshotTests: FBSnapshotTestCase {
     
     
     func validateTopListRepositories(finished: () -> Void) {
-        let imageViewLoadingScreen = getCurrentImageScreen()
+        
         guard let tableView = tester().waitForView(withAccessibilityIdentifier: "tableView") as? UITableView else {
             XCTFail("TableView not found")
             return
         }
         
-        // validate layout first loading screen
-        FBSnapshotVerifyView(imageViewLoadingScreen, identifier: Identifiers.TopListRepositoriesID.firstScreenLoading.rawValue, overallTolerance: 0.2)
-        
-        
         //validate layout repository cell
         if let cell = tester().waitForCell(at: IndexPath(item: 0, section: 0), in: tableView) as? RepositoryCell {
             FBSnapshotVerifyView(cell, identifier: Identifiers.TopListRepositoriesID.repositoryCell.rawValue)
         }
-        
+
         // validade first page
-        tableView.contentOffset.y = 0
+        tester().waitForAnimationsToFinish()
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         tester().waitForAnimationsToFinish()
         let imageViewFirstScreen = getCurrentImageScreen()
-        
-        FBSnapshotVerifyView(imageViewFirstScreen, identifier: Identifiers.TopListRepositoriesID.firstScreen.rawValue, overallTolerance: 0.2)
-        
+        FBSnapshotVerifyView(imageViewFirstScreen, identifier: Identifiers.TopListRepositoriesID.firstScreenLoading.rawValue, overallTolerance: 0.2)
         
         //validate infinity scroll layout
         tableView.scrollToRow(at: IndexPath(row: tableView.numberOfRows(inSection: 0)-1, section: 0), at: .bottom, animated: true)
