@@ -2,6 +2,11 @@
 
 Desenvolvido por Thiago Cavalcante de Oliveira.
 
+[![IDE](https://img.shields.io/badge/Xcode-11.3-blue.svg)](https://developer.apple.com/xcode/)
+[![Language](https://img.shields.io/badge/swift-5-orange.svg)](https://swift.org)
+[![Platform](https://img.shields.io/badge/iOS-13.3-green.svg)](https://developer.apple.com/ios/)
+[![Build Status](https://travis-ci.com/jpedrosg/TopSwiftRepositories.svg?branch=master)](https://travis-ci.com/jpedrosg/TopSwiftRepositories.svg?branch=master)
+
 # Introdução: 
 Aplicativo iOS que tem como objetivo acessar a API do github de repositorios da linguagem JAVA e também visualizar todos os Pull Requests abertos desse repositorio.
 
@@ -31,6 +36,7 @@ Print 2 - Listagem de pull requests de um repositorio.
 - Testes unitarios na camada do Interactor (quick e nimble)
 - Testes de caixa preta (iOSSnapshotTestCase, KIF)
 - Cobertura de teste de 87,2% do projeto
+- Testes automatizados (Travis CI)
 
 ## Arquitetura utilizada
 
@@ -40,6 +46,7 @@ Mais informações: https://clean-swift.com/clean-swift-ios-architecture/
 
 ## Features e diferenciais
 - Testes de caixa preta utlizando iOSSnapshotTestCase e o KIF
+- Integraçao contínua (Travis CI)
 - Pull refresh
 - Infinite scroll
 - Internacionalização
@@ -79,3 +86,10 @@ OBS: Não abra pelo **`TopSwiftRepositories.xcodeproj`** pois os pods não serã
 
 ## Instruçōes para compilação dos testes de caixa preta
 - Os testes de caixa preta foram configurados apenas no IPhone 11 Pro Max, ao executar os testes certifique-se que o simulador esteja nessa versão do iPhone.
+
+## Instruçōes para compilação dos testes automatizados no terminal
+- No Terminal, com a paste origem do projeto aberta, execute o comando:
+```
+xcodebuild build test -workspace TopSwiftRepositories.xcworkspace -scheme "TopSwiftRepositories" -sdk iphonesimulator -destination "platform=iOS Simulator,OS=13.3,name=iPhone 8" PLATFORM_NAME=iphonesimulator ONLY_ACTIVE_ARCH=YES CODE_SIGNING_REQUIRED=NO
+
+```
